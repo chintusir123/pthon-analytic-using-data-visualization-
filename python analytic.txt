@@ -1,0 +1,47 @@
+                 
+         #DATA VISUALIZATION 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+     
+         # DATA VISUALIZATION 
+industry_data =pd.read_csv(r'C:\\Users\\Majid Aslam\\Downloads\\insurance.csv')
+industry_data.shape # SHAPE IS ROW AND COLUME (1338,7)
+industry_data.size # TOTAL NO OF WORD SIZE
+industry_data.ndim # 2 DIMENSION
+industry_data.transpose # FULL DATAFRAME ROW AND COLUME COMPLETE 
+industry_data.dtypes # how many object ,int, float number in csv file
+industry_data.isna() # csv file inside messing value true and non messing value false condi
+print("true and false ",industry_data.isna())
+industry_data.notna() # all value true print
+print("all value true",industry_data.notna())
+industry_data.interpolate()
+industry_data.info() #all data frame rande index and attribute
+industry_data.describe() #count, mean, min,max,(%,25,50,75) find out
+industry_data.isnull().sum() #colume name denoted by 0 value
+industry_data["age"].unique() #unique number not repteded number 
+industry_data["expenses"].value_counts() # lenth and data types
+plt.hist(industry_data['smoker'])
+plt.title("width frequency distribuation")
+plt.xlabel('DOG IS VERY INTELIGENT ANIMALS')
+plt.ylabel("THIS IS MY NER CARS COLLECTION")
+width_mean = industry_data["age"].mean()
+width_median = industry_data["age"].median()
+plt.axvline(width_mean, color="red")
+plt.axvline(width_median,color ="yellow")
+industry_data.plot(x='age',y='children',kind='line')#numerical data
+industry_data.plot(x='bmi',y="expenses",kind='bar')#numerical data visualization 
+plt.figure(figsize =(6,6))
+sns.countplot(data=industry_data,x="bmi")
+industry_data.plot(x='sex',y='region',kind='scatter')#any data visualization 
+plt.figure(figsize =(6,7))
+sns.boxplot(data=industry_data, x='age') #only numrical value find box plot
+plt.figure(figsize=(8,8))
+sns.boxplot(data=industry_data, x='smoker',y='expenses') #OUTLIER PLOT IN COMPANY WISE
+industry_data.loc[0:10,["age","children","region"]]
+plt.figure(figsize=(8,8))
+industry_data.plot.pie(y="age",figsize=(8,8))#numerical data
+plt.grid(True,color="yellow") #TRUE NAD FALSE BOOLEAN
+plt.legend(labels=["square root","log"])
+plt.show()
